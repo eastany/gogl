@@ -9,12 +9,15 @@
 #include <GLUT/GLUT.h>
 #include <math.h>
 #include <stdio.h>
+#include "fps.h"
 float pi = 3.141592653;
 static float delt = 0.01;
 static int day = 0;
 
 void my_display(void)
 {
+    double FPS = CalFrequency();
+    printf("FPS = %f\n", FPS);
     glEnable(GL_DEPTH_TEST);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
     
@@ -63,8 +66,8 @@ int main(int argc, char ** argv)
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
     glutInitWindowSize(640,480);
-    //glutInitWindowPosition(100, 100);
-    glutCreateWindow(argv[0]);
+    glutInitWindowPosition(100, 100);
+    glutCreateWindow("星星运动");
     myInit();
     glutDisplayFunc(my_display);
     glutIdleFunc(spin_display);
