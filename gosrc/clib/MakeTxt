@@ -1,0 +1,2 @@
+gcc -c test.c
+gcc -shared -W1,-soname,libtest.so -o libtest.so test.o
